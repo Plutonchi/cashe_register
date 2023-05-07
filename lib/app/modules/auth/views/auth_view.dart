@@ -62,7 +62,7 @@ class AuthView extends GetView<AuthController> {
                 ),
                 InkWell(
                   onTap: () {
-                    // _authController.signUp();
+                    _authController.signIn();
                   },
                   child: Container(
                     decoration: BoxDecoration(

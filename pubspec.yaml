@@ -13,6 +13,9 @@ dependencies:
   intl: ^0.18.1
   image_picker: ^0.8.7+4
   firebase_core:
+  cloud_firestore: ^4.6.0
+  firebase_auth: ^4.2.2
+  
   
 
 dev_dependencies: 

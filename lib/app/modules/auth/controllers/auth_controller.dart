@@ -1,8 +1,8 @@
-// import 'dart:developer';
+import 'dart:developer';
 
-// import 'package:cashe_register/app/modules/home/views/home_view.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cashe_register/app/modules/home/views/home_view.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
@@ -12,21 +12,21 @@ class AuthController extends GetxController {
   RxBool isVisible = true.obs;
   RxBool processing = false.obs;
 
-  // Future<void> signIn() async {
-  //   try {
-  //     await FirebaseAuth.instance.signInWithEmailAndPassword(
-  //       email: email.value,
-  //       password: password.value,
-  //     );
-  //     Get.to(HomeView());
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'user-not-found') {
-  //       log('No user found for that email.');
-  //     } else if (e.code == 'wrong-password') {
-  //       log('Wrong password provided for that user.');
-  //     }
-  //   }
-  // }
+  Future<void> signIn() async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email.value,
+        password: password.value,
+      );
+      Get.to(HomeView());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        log('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        log('Wrong password provided for that user.');
+      }
+    }
+  }
   // CollectionReference users = FirebaseFirestore.instance.collection('users');
   // Future<void> addUser() {
   //   return users
