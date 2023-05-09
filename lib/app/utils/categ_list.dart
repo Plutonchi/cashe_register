@@ -9,7 +9,7 @@ List<String> mainteach = [
   'shoirbek',
   'aisha',
 ];
-const List<String> olymjon = [
+const List<String> selectCoursLevel = [
   '~',
   '1 cours',
   '2 cours',

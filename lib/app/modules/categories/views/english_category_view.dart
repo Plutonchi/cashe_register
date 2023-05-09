@@ -4,7 +4,7 @@ import 'package:cashe_register/app/constans/app_text_styles.dart';
 import 'package:cashe_register/app/modules/categories/widgets/search_widget.dart';
 import 'package:cashe_register/app/modules/home/controllers/home_controller.dart';
 import 'package:cashe_register/app/modules/receipt/views/receipt_view.dart';
-import 'package:cashe_register/app/widgets/app_bar_container.dart';
+import 'package:cashe_register/app/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -19,27 +19,29 @@ class EnglishCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(kToolbarHeight),
+        child: CustomAppBar(
+          text: AppText.englText,
+          child: IconButton(
+              onPressed: () {
+                _homeController.navigateToHomeView(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: AppColors.whiteF5,
+              )),
+        ),
+      ),
       backgroundColor: AppColors.white,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
           children: [
-            AppBarContainer(
-              menu: AppText.englText,
-              text: '14',
-              menuicon: IconButton(
-                  onPressed: () {
-                    _homeController.navigateToHomeView(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: AppColors.whiteF5,
-                  )),
-            ),
             const SizedBox(
               height: 20,
             ),
-            const SearchWidget(),
+            SearchWidget(),
             const SizedBox(
               height: 20,
             ),
@@ -92,9 +94,9 @@ class EnglishCategory extends StatelessWidget {
                                 textAlign: TextAlign.center,
                                 style: AppTextStyle.green16w700,
                               ),
-                              Text('Teacher - ${invoice.categories} ',
-                                  textAlign: TextAlign.center,
-                                  style: AppTextStyle.black15wBlodFgen),
+                              // Text('Teacher - ${invoice.categories} ',
+                              //     textAlign: TextAlign.center,
+                              //     style: AppTextStyle.black15wBlodFgen),
                             ],
                           ),
                         ],

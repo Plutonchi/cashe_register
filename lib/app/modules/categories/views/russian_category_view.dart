@@ -2,7 +2,7 @@ import 'package:cashe_register/app/constans/app_colors.dart';
 import 'package:cashe_register/app/constans/app_text.dart';
 import 'package:cashe_register/app/modules/categories/widgets/search_widget.dart';
 import 'package:cashe_register/app/modules/home/controllers/home_controller.dart';
-import 'package:cashe_register/app/widgets/app_bar_container.dart';
+import 'package:cashe_register/app/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,27 +14,28 @@ class RussianCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: PreferredSize(
+          child: CustomAppBar(
+            text: AppText.rusText,
+            child: IconButton(
+                onPressed: () {
+                  _homeController.navigateToHomeView(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios,
+                  color: AppColors.whiteF5,
+                )),
+          ),
+          preferredSize: Size.fromHeight(kToolbarHeight)),
       backgroundColor: AppColors.white,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
           children: [
-            AppBarContainer(
-              menu: AppText.rusText,
-              text: '14',
-              menuicon: IconButton(
-                  onPressed: () {
-                    _homeController.navigateToHomeView(context);
-                  },
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: AppColors.whiteF5,
-                  )),
-            ),
             const SizedBox(
               height: 20,
             ),
-            const SearchWidget()
+            SearchWidget()
           ],
         ),
       ),

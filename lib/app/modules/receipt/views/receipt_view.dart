@@ -6,6 +6,7 @@ import 'package:cashe_register/app/modules/home/controllers/home_controller.dart
 import 'package:cashe_register/app/modules/receipt/controllers/receipt_controller.dart';
 import 'package:cashe_register/app/modules/receipt/widgets/vertical_divider_widget.dart';
 import 'package:cashe_register/app/utils/categ_list.dart';
+import 'package:cashe_register/app/widgets/custom_app_bar.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,13 +20,13 @@ class Invoice {
   String amount;
   String invoiceNumber;
   dynamic date;
-  String categories;
+  // String categories;
   Invoice({
     required this.firstName,
     required this.amount,
     required this.invoiceNumber,
     required this.date,
-    required this.categories,
+    // required this.categories,
   });
 }
 
@@ -68,45 +69,28 @@ class _ReceiptViewState extends State<ReceiptView> {
     final sizeHeight = MediaQuery.of(context).size.height;
     return ScaffoldMessenger(
       child: Scaffold(
+        appBar: PreferredSize(
+            child: CustomAppBar(
+              text: AppText.receipt.toUpperCase(),
+              // textAlign: TextAlign.center,
+              // style: AppTextStyle.whiteS24FGen,
+              child: IconButton(
+                onPressed: () {
+                  _homeController.navigateToHomeView(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back_ios_new_outlined,
+                  size: 22,
+                  color: AppColors.white,
+                ),
+              ),
+            ),
+            preferredSize: Size.fromHeight(kToolbarHeight)),
         backgroundColor: AppColors.white,
         body: SingleChildScrollView(
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 44),
-                child: Container(
-                  width: sizeWidth * 1,
-                  height: sizeHeight * 0.07,
-                  color: AppColors.black53,
-                  child: Row(
-                    children: [
-                      Center(
-                        child: IconButton(
-                          onPressed: () {
-                            _homeController.navigateToHomeView(context);
-                          },
-                          icon: const Icon(
-                            Icons.arrow_back_ios_new_outlined,
-                            size: 22,
-                            color: AppColors.white,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 110,
-                      ),
-                      Center(
-                        child: Text(
-                          AppText.receipt.toUpperCase(),
-                          textAlign: TextAlign.center,
-                          style: AppTextStyle.whiteS24FGen,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
               Form(
                 key: _receiptController.formKey,
                 child: Padding(
@@ -230,25 +214,23 @@ class _ReceiptViewState extends State<ReceiptView> {
                                         });
                                       },
                                       children: List<Widget>.generate(
-                                          mainCoursName.length, (int index) {
+                                          selectCoursLevel.length, (int index) {
                                         return Center(
-                                            // child: Text(
-                                            //   _receiptController
-                                            //       .selectedMainCateg()[index],
-                                            // ),
-                                            );
+                                          child: Text(
+                                            selectCoursLevel[index],
+                                          ),
+                                        );
                                       }),
                                     ),
                                   );
                                 },
-                                child: Center(),
-                                // child: Text(
-                                //   subcours[_receiptController
-                                //       .selectCoursLevel.value],
-                                //   style: const TextStyle(
-                                //     fontSize: 22.0,
-                                //   ),
-                                // ),
+                                child: Text(
+                                  selectCoursLevel[_receiptController
+                                      .selectCoursLevel.value],
+                                  style: const TextStyle(
+                                    fontSize: 22.0,
+                                  ),
+                                ),
                               ),
                             ],
                           ),

@@ -1,5 +1,6 @@
 import 'package:cashe_register/app/constans/app_colors.dart';
 import 'package:cashe_register/app/modules/auth/controllers/auth_controller.dart';
+import 'package:cashe_register/app/modules/home/views/home_view.dart';
 
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,7 @@ import 'package:get/get.dart';
 
 class AuthView extends GetView<AuthController> {
   AuthView({Key? key}) : super(key: key);
-  final _authController = Get.put(AuthController());
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final GlobalKey<ScaffoldMessengerState> scaffoldKey =
       GlobalKey<ScaffoldMessengerState>();
@@ -30,7 +31,7 @@ class AuthView extends GetView<AuthController> {
                           bottomRight: Radius.circular(105.0))),
                   child: Center(
                     child: Image.asset(
-                      "assets/images/photo.png",
+                      "images/photo.png",
                     ),
                   ),
                 ),
@@ -62,7 +63,7 @@ class AuthView extends GetView<AuthController> {
                 ),
                 InkWell(
                   onTap: () {
-                    _authController.signIn();
+                    Get.to(HomeView());
                   },
                   child: Container(
                     decoration: BoxDecoration(

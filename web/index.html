@@ -42,33 +42,6 @@
 </head>
 
 <body>
-
-  <script>
-    import { initializeApp } from "firebase/app";
-    
-    import { getAuth, onAuthStateChanged } from "firebase/auth";
-  
-const firebaseApp = initializeApp({});
-    const firebaseConfig = {
-      apiKey: "AIzaSyBu7Wa3ezYPk6CGuBw7gTWHtRYUhc2fqXU",
-      authDomain: "cashe-register.firebaseapp.com",
-      projectId: "cashe-register",
-      storageBucket: "cashe-register.appspot.com",
-      messagingSenderId: "282814697879",
-      appId: "1:282814697879:web:5d1b5880be34cfdf81f4d2",
-      measurementId: "G-XPBVDSK9P0"
-    };
-
-    const _app = initializeApp(firebaseConfig);
-   
-   //Detect auth state
-    onAuthStateChanged(auth, user => {
-      if (user = null) {
-        console.log("logged in");
-      } else { console.log("NO user"); }
-    });
-  </script>
-
   <script>
     window.addEventListener('load', function (ev) {
       // Download main.dart.js

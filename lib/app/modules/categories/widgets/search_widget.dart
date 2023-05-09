@@ -1,13 +1,15 @@
 import 'package:cashe_register/app/constans/app_colors.dart';
 import 'package:cashe_register/app/constans/app_text.dart';
+import 'package:cashe_register/app/modules/categories/controllers/categories_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
 class SearchWidget extends StatelessWidget {
-  const SearchWidget({
+  SearchWidget({
     super.key,
   });
-
+  CategoriesController _categoriesController = Get.put(CategoriesController());
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -15,12 +17,13 @@ class SearchWidget extends StatelessWidget {
         horizontal: 22,
       ),
       child: TextFormField(
+        controller: _categoriesController.searchController,
         textAlign: TextAlign.center,
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
-          prefixIcon: SvgPicture.asset(
-            "assets/icons/search.svg",
-            fit: BoxFit.cover,
+          prefixIcon: Icon(
+            Icons.search_sharp,
+            size: 22,
           ),
           fillColor: AppColors.whiteF5,
           filled: true,
