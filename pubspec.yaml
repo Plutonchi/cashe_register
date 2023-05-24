@@ -18,6 +18,8 @@ dependencies:
   
 
 dev_dependencies: 
+  firebase_auth: ^4.6.1
+  firebase_core: ^2.13.0
   flutter_lints: 2.0.1
   flutter_test: 
     sdk: flutter

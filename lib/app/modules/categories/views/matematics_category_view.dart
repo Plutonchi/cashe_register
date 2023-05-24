@@ -14,6 +14,7 @@ class MatematicsCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: CustomAppBar(
             text: AppText.mathText,
             child: IconButton(
@@ -24,8 +25,7 @@ class MatematicsCategory extends StatelessWidget {
                   Icons.arrow_back_ios,
                   color: AppColors.whiteF5,
                 )),
-          ),
-          preferredSize: Size.fromHeight(kToolbarHeight)),
+          )),
       backgroundColor: AppColors.white,
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,

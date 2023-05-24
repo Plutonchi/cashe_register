@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
+// ignore: must_be_immutable
 class SearchWidget extends StatelessWidget {
   SearchWidget({
     super.key,
   });
-  CategoriesController _categoriesController = Get.put(CategoriesController());
+  final CategoriesController _categoriesController =
+      Get.put(CategoriesController());
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,7 +23,7 @@ class SearchWidget extends StatelessWidget {
         textAlign: TextAlign.center,
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
-          prefixIcon: Icon(
+          prefixIcon: const Icon(
             Icons.search_sharp,
             size: 22,
           ),

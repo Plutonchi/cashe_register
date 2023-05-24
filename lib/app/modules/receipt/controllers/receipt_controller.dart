@@ -1,5 +1,5 @@
+import 'package:cashe_register/app/model/invoice_model.dart';
 import 'package:cashe_register/app/modules/categories/views/english_category_view.dart';
-import 'package:cashe_register/app/modules/receipt/views/receipt_view.dart';
 // import 'package:cashe_register/app/utils/categ_list.dart';
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,15 +20,15 @@ class ReceiptController extends GetxController {
   RxInt selectCoursTeach = 0.obs;
 
   RxDouble kItemExtent = 50.0.obs;
-  final formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final firstNameController = TextEditingController();
 
   final amountController = TextEditingController();
   final RxList<Invoice> invoices = <Invoice>[].obs;
   void showSnackBar() {
-    SnackBar(
-      content: Text("You do not selected categories"),
+    const GetSnackBar(
+      message: "You do not selected categories",
       duration: Duration(
         seconds: 5,
       ),
@@ -99,21 +99,4 @@ class ReceiptController extends GetxController {
   //   mainCoursName = '~' as List<String>;
   // }
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

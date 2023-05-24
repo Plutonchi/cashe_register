@@ -16,6 +16,7 @@ class OrtCategory extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(kToolbarHeight),
           child: CustomAppBar(
             text: AppText.ortText,
             child: IconButton(
@@ -26,8 +27,7 @@ class OrtCategory extends StatelessWidget {
                   Icons.arrow_back_ios,
                   color: AppColors.whiteF5,
                 )),
-          ),
-          preferredSize: Size.fromHeight(kToolbarHeight)),
+          )),
       body: SingleChildScrollView(
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(

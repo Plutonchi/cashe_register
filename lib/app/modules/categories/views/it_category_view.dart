@@ -14,7 +14,7 @@ class ItCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight),
+        preferredSize: const Size.fromHeight(kToolbarHeight),
         child: CustomAppBar(
           text: AppText.itText,
           child: IconButton(
